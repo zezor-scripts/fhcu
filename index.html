@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ultimate Scripting Reference Guide</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0c131a; /* Very Dark Blue */
+            color: #e5e7eb; /* Light Gray Text */
+        }
+        .container {
+            max-width: 1000px;
+        }
+        /* Style for the code blocks */
+        .code-block {
+            background-color: #1f2937; /* Gray-800 */
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 0.5rem;
+            overflow-x: auto;
+            font-family: monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #93c5fd; /* Code color: Blue-300 */
+        }
+        /* Custom colors for syntax highlighting (Manual implementation) */
+        .code-keyword { color: #f87171; } /* Red */
+        .code-function { color: #a78bfa; } /* Violet */
+        .code-string { color: #fcd34d; } /* Yellow */
+        .code-comment { color: #4ade80; } /* Green */
+        
+        /* Style for the collapsible details element */
+        details {
+            margin-bottom: 1rem;
+            border-radius: 0.75rem;
+            background-color: #1f2937; /* Card background */
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        summary {
+            cursor: pointer;
+            padding: 1.5rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #93c5fd; /* Header color */
+            list-style: none; /* Hide default triangle */
+            border-bottom: 2px solid transparent;
+            transition: border-bottom 0.2s;
+        }
+        details[open] summary {
+            border-bottom: 2px solid #3b82f6; /* Blue border when open */
+            color: #3b82f6;
+        }
+        summary::marker {
+            display: none;
+        }
+        .content-area {
+            padding: 0 1.5rem 1.5rem 1.5rem;
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-8">
+
+    <!-- Header -->
+    <header class="text-center mb-10 py-6 bg-gray-800 rounded-xl shadow-2xl bg-opacity-70 backdrop-blur-sm border-b border-blue-600">
+        <h1 class="text-4xl sm:text-5xl font-extrabold text-blue-400">
+            Scripting Language Syntax Cheat Sheet
+        </h1>
+        <p class="text-lg sm:text-xl mt-2 text-gray-400">
+            Fundamentals for Web, Game, and System Development
+        </p>
+    </header>
+
+    <!-- Main Content - Language Cards -->
+    <main class="container mx-auto space-y-4">
+
+        <!-- 1. JAVASCRIPT (The Language of the Web) -->
+        <details>
+            <summary>
+                <span class="text-yellow-400">JavaScript (JS)</span> - Frontend & Backend
+            </summary>
+            <div class="content-area">
+                <p class="text-gray-400 mb-4">The core language for web interactivity. Runs in browsers (Frontend) and on servers (Node.js/Backend).</p>
+                
+                <h3 class="text-xl font-semibold mb-2 text-white">Example 1: Defining a Function</h3>
+                <div class="code-block">
+                    <span class="code-keyword">const</span> message = <span class="code-string">"Hello, World!"</span>; <span class="code-comment">// Variable declaration</span><br>
+                    <span class="code-keyword">function</span> <span class="code-function">calculateArea</span>(<span class="code-keyword">length</span>, <span class="code-keyword">width</span>) {<br>
+                    &nbsp;&nbsp;<span class="code-keyword">return</span> length * width;<br>
+                    }<br>
+                    <span class="code-function">console</span>.<span class="code-function">log</span>(<span class="code-function">calculateArea</span>(<span class="code-string">10</span>, <span class="code-string">5</span>));
+                </div>
+
+                <h3 class="text-xl font-semibold mb-2 mt-4 text-white">Example 2: DOM Interaction (Button Click)</h3>
+                <div class="code-block">
+                    <span class="code-comment">// Get an HTML element by its ID</span><br>
+                    <span class="code-keyword">const</span> button = <span class="code-function">document</span>.<span class="code-function">getElementById</span>(<span class="code-string">'myButton'</span>);<br>
+                    <span class="code-keyword">const</span> textDiv = <span class="code-function">document</span>.<span class="code-function">getElementById</span>(<span class="code-string">'output'</span>);<br>
+                    <br>
+                    <span class="code-comment">// Add an event listener to run a function when clicked</span><br>
+                    button.<span class="code-function">addEventListener</span>(<span class="code-string">'click'</span>, (<span class="code-keyword">event</span>) => {<br>
+                    &nbsp;&nbsp;textDiv.<span class="code-function">textContent</span> = <span class="code-string">"Button was clicked!"</span>;<br>
+                    &nbsp;&nbsp;button.<span class="code-function">style</span>.<span class="code-function">backgroundColor</span> = <span class="code-string">'red'</span>;<br>
+                    });
+                </div>
+            </div>
+        </details>
+
+        <!-- 2. PYTHON (General Purpose & Data Science) -->
+        <details>
+            <summary>
+                <span class="text-green-400">Python</span> - General Purpose & Automation
+            </summary>
+            <div class="content-area">
+                <p class="text-gray-400 mb-4">Known for its clean, readable syntax and extensive libraries. Widely used for data, AI, and scripting.</p>
+
+                <h3 class="text-xl font-semibold mb-2 text-white">Example 1: List Iteration and Conditionals</h3>
+                <div class="code-block">
+                    <span class="code-keyword">fruits</span> = [<span class="code-string">'apple'</span>, <span class="code-string">'banana'</span>, <span class="code-string">'cherry'</span>]<br>
+                    <span class="code-keyword">for</span> fruit <span class="code-keyword">in</span> fruits:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">if</span> fruit == <span class="code-string">'banana'</span>:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-function">print</span>(<span class="code-string">"Found the banana!"</span>)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">else</span>:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-function">print</span>(fruit)
+                </div>
+
+                <h3 class="text-xl font-semibold mb-2 mt-4 text-white">Example 2: File Reading and Writing</h3>
+                <div class="code-block">
+                    <span class="code-comment"># Writing content to a file</span><br>
+                    <span class="code-keyword">with</span> <span class="code-function">open</span>(<span class="code-string">'log.txt'</span>, <span class="code-string">'w'</span>) <span class="code-keyword">as</span> file:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;file.<span class="code-function">write</span>(<span class="code-string">"Application started at 12:00\n"</span>)<br>
+                    <br>
+                    <span class="code-comment"># Reading content from a file</span><br>
+                    <span class="code-keyword">with</span> <span class="code-function">open</span>(<span class="code-string">'log.txt'</span>, <span class="code-string">'r'</span>) <span class="code-keyword">as</span> file:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">content</span> = file.<span class="code-function">read</span>()<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-function">print</span>(<span class="code-keyword">content</span>)<br>
+                </div>
+            </div>
+        </details>
+
+        <!-- 3. LUA (Game Development / Roblox) -->
+        <details>
+            <summary>
+                <span class="text-blue-400">Lua</span> - Lightweight & Embedded Systems (Roblox)
+            </summary>
+            <div class="content-area">
+                <p class="text-gray-400 mb-4">A fast, small, and embeddable scripting language. Famous as the core scripting language for Roblox Studio.</p>
+
+                <h3 class="text-xl font-semibold mb-2 text-white">Example 1: Tables (Dictionaries/Arrays)</h3>
+                <div class="code-block">
+                    <span class="code-keyword">local</span> playerStats = {<br>
+                    &nbsp;&nbsp;<span class="code-string">Name</span> = <span class="code-string">"Zezor"</span>, <span class="code-comment">-- Key-value pairs (dictionary)</span><br>
+                    &nbsp;&nbsp;XP = <span class="code-string">500</span>,<br>
+                    &nbsp;&nbsp;<span class="code-string">"sword"</span>, <span class="code-string">"shield"</span> <span class="code-comment">-- Array elements</span><br>
+                    }<br>
+                    <span class="code-function">print</span>(<span class="code-function">playerStats</span>.<span class="code-string">XP</span>) <span class="code-comment">-- Access the value 500</span><br>
+                    <span class="code-function">print</span>(<span class="code-function">playerStats</span>[<span class="code-string">2</span>]) <span class="code-comment">-- Access the array element "shield"</span>
+                </div>
+                
+                <h3 class="text-xl font-semibold mb-2 mt-4 text-white">Example 2: Handling a Roblox Event</h3>
+                <div class="code-block">
+                    <span class="code-keyword">local</span> part = <span class="code-keyword">game</span>.<span class="code-keyword">Workspace</span>.<span class="code-keyword">TeleportPad</span><br>
+                    <br>
+                    <span class="code-keyword">local function</span> <span class="code-function">onTouched</span>(<span class="code-keyword">otherPart</span>)<br>
+                    &nbsp;&nbsp;<span class="code-comment">-- Find the player's character model</span><br>
+                    &nbsp;&nbsp;<span class="code-keyword">local</span> character = <span class="code-keyword">otherPart</span>.<span class="code-keyword">Parent</span><br>
+                    &nbsp;&nbsp;<span class="code-keyword">local</span> humanoid = character:<span class="code-function">FindFirstChild</span>(<span class="code-string">"Humanoid"</span>)<br>
+                    <br>
+                    &nbsp;&nbsp;<span class="code-keyword">if</span> humanoid <span class="code-keyword">then</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">-- Teleport the character to a new location (Vector3)</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;character.<span class="code-keyword">PrimaryPart</span>.<span class="code-keyword">CFrame</span> = <span class="code-keyword">CFrame</span>.<span class="code-function">new</span>(<span class="code-string">0</span>, <span class="code-string">100</span>, <span class="code-string">0</span>)<br>
+                    &nbsp;&nbsp;<span class="code-keyword">end</span><br>
+                    <span class="code-keyword">end</span><br>
+                    <br>
+                    part.<span class="code-keyword">Touched</span>:<span class="code-function">Connect</span>(<span class="code-function">onTouched</span>) <span class="code-comment">-- Connect the function to the event</span>
+                </div>
+            </div>
+        </details>
+
+        <!-- 4. SQL (Database Language) -->
+        <details>
+            <summary>
+                <span class="text-cyan-400">SQL</span> - Database Management
+            </summary>
+            <div class="content-area">
+                <p class="text-gray-400 mb-4">Structured Query Language. Used to communicate with databases to store, retrieve, and manage data.</p>
+                
+                <h3 class="text-xl font-semibold mb-2 text-white">Example 1: Basic Data Selection</h3>
+                <div class="code-block">
+                    <span class="code-keyword">SELECT</span> name, score <span class="code-comment">-- Select the columns you want</span><br>
+                    <span class="code-keyword">FROM</span> high_scores <span class="code-comment">-- Specify the table</span><br>
+                    <span class="code-keyword">WHERE</span> score > <span class="code-string">1000</span> <span class="code-comment">-- Filter the results</span><br>
+                    <span class="code-keyword">ORDER BY</span> score <span class="code-keyword">DESC</span>; <span class="code-comment">-- Sort the results (Descending)</span>
+                </div>
+                
+                <h3 class="text-xl font-semibold mb-2 mt-4 text-white">Example 2: Joining Tables and Aggregation</h3>
+                <div class="code-block">
+                    <span class="code-keyword">SELECT</span> p.<span class="code-keyword">project_name</span>, <span class="code-function">COUNT</span>(t.<span class="code-keyword">task_id</span>) <span class="code-keyword">AS</span> total_tasks<br>
+                    <span class="code-keyword">FROM</span> projects p<br>
+                    <span class="code-keyword">JOIN</span> tasks t <span class="code-keyword">ON</span> p.<span class="code-keyword">project_id</span> = t.<span class="code-keyword">project_id</span> <span class="code-comment">-- Connects two tables</span><br>
+                    <span class="code-keyword">WHERE</span> t.<span class="code-keyword">status</span> = <span class="code-string">'In Progress'</span><br>
+                    <span class="code-keyword">GROUP BY</span> p.<span class="code-keyword">project_name</span><br>
+                    <span class="code-keyword">HAVING</span> <span class="code-function">COUNT</span>(t.<span class="code-keyword">task_id</span>) > <span class="code-string">5</span>; <span class="code-comment">-- Filters groups</span>
+                </div>
+            </div>
+        </details>
+
+        <!-- 5. PHP (Backend Web) -->
+        <details>
+            <summary>
+                <span class="text-indigo-400">PHP</span> - Server-Side Web Development
+            </summary>
+            <div class="content-area">
+                <p class="text-gray-400 mb-4">A powerful language primarily used for server-side scripting (processing forms, managing databases, generating HTML).</p>
+                
+                <h3 class="text-xl font-semibold mb-2 text-white">Example 1: Combining Variables and HTML</h3>
+                <div class="code-block">
+                    &lt;?php <span class="code-comment">// PHP code starts here</span><br>
+                    &nbsp;&nbsp;$username = <span class="code-string">"CodeMaster"</span>;<br>
+                    &nbsp;&nbsp;$age = <span class="code-string">25</span>;<br>
+                    ?&gt;<br>
+                    <span class="code-keyword">&lt;h1&gt;</span>Welcome, &lt;?php echo $username; ?&gt;!&lt;/h1&gt;<br>
+                    <span class="code-comment">// Output: Welcome, CodeMaster!</span>
+                </div>
+                
+                <h3 class="text-xl font-semibold mb-2 mt-4 text-white">Example 2: Handling a Form Submission (POST)</h3>
+                <div class="code-block">
+                    &lt;?php <br>
+                    <span class="code-keyword">if</span> (<span class="code-function">$_SERVER</span>[<span class="code-string">'REQUEST_METHOD'</span>] === <span class="code-string">'POST'</span>) {<br>
+                    &nbsp;&nbsp;<span class="code-comment">// Check if the form was submitted</span><br>
+                    &nbsp;&nbsp;$user_input = <span class="code-function">$_POST</span>[<span class="code-string">'name_field'</span>];<br>
+                    &nbsp;&nbsp;$safe_input = <span class="code-function">htmlspecialchars</span>($user_input); <span class="code-comment">// Sanitize input!</span><br>
+                    &nbsp;&nbsp;<span class="code-function">echo</span> <span class="code-string">"Thank you, "</span> . $safe_input;<br>
+                    }<br>
+                    <span class="code-comment">// Note: This requires a form tag in the HTML with method="POST"</span><br>
+                    ?&gt;
+                </div>
+            </div>
+        </details>
+        
+        <!-- 6. BASH (Command Line/Linux Scripting) -->
+        <details>
+            <summary>
+                <span class="text-red-400">Bash / Shell</span> - System Scripting
+            </summary>
+            <div class="content-area">
+                <p class="text-gray-400 mb-4">Used to write scripts that automate tasks on Linux/Unix systems and command lines.</p>
+
+                <h3 class="text-xl font-semibold mb-2 text-white">Example 1: Simple Backup Script</h3>
+                <div class="code-block">
+                    <span class="code-comment">#!/bin/bash</span><br>
+                    <span class="code-keyword">echo</span> <span class="code-string">"Starting backup..."</span><br>
+                    <span class="code-keyword">DEST</span>=/home/user/backups/$(date +%Y-%m-%d)<br>
+                    <span class="code-keyword">mkdir</span> -p $DEST <span class="code-comment"># Create backup directory</span><br>
+                    <span class="code-keyword">cp</span> -r ~/Documents/* $DEST<br>
+                    <span class="code-keyword">echo</span> <span class="code-string">"Backup complete to "</span>$DEST
+                </div>
+                
+                <h3 class="text-xl font-semibold mb-2 mt-4 text-white">Example 2: Checking Status and Printing System Info</h3>
+                <div class="code-block">
+                    <span class="code-comment"># Define a function</span><br>
+                    <span class="code-keyword">check_dir</span>() {<br>
+                    &nbsp;&nbsp;<span class="code-keyword">if</span> [ -d <span class="code-string">"$1"</span> ]; <span class="code-keyword">then</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">echo</span> <span class="code-string">"Directory $1 exists."</span><br>
+                    &nbsp;&nbsp;<span class="code-keyword">else</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">echo</span> <span class="code-string">"Error: Directory $1 not found."</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">exit 1</span><br>
+                    &nbsp;&nbsp;<span class="code-keyword">fi</span><br>
+                    }<br>
+                    <span class="code-comment"># Call the function and get system info</span><br>
+                    <span class="code-function">check_dir</span> /var/log<br>
+                    <span class="code-keyword">echo</span> <span class="code-string">"Running processes:"</span><br>
+                    <span class="code-keyword">ps</span> -aux | <span class="code-keyword">head</span> -n <span class="code-string">5</span>
+                </div>
+            </div>
+        </details>
+
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-16 pt-6 border-t border-gray-700 text-center text-gray-500">
+        <p>A multi-language reference built using simple HTML and Tailwind CSS.</p>
+    </footer>
+
+</body>
+</html>
